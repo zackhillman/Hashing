@@ -1,28 +1,24 @@
 package hashing;
+public interface HashTable {
 
-public abstract class HashTable {
-
-	private Integer[] table;
-	private int tableSize;
-	private final int SIZE = 12;
+	/**
+	 * This method adds integers to the table.
+	 * @param- The number being added to the table
+	 */
+	public void add(Integer num);
 	
-	public HashTable(){
-		table = new Integer[SIZE];
-		tableSize = 0;
-	}
+	/**
+	 * This method searches for a given number
+	 * @param- the number to search for
+	 * @return- the number of places checked & the number if found
+	 */
+	public String search(Integer num);
 	
-	public boolean addInteger(int num) {
-		while(tableSize<12){
-			int index = num%SIZE;
-			if(table[index]==null){
-				table[index] = num;
-				return true;
-			}else{
-				return collision(num);
-			}
-		}
-		return false;
-	}
+	/**
+	 * This method gets the hash index for a given number
+	 * @param- the inputed number
+	 * @return- the hash index
+	 */
+	public int hash(Integer key_value);
 	
-	public abstract boolean collision(int num);
 }
