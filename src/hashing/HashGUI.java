@@ -17,6 +17,7 @@ public class HashGUI extends GBFrame{
 	private JButton add; //Adds a number to the table
 	private JButton search; //Searches for a number
 	private JButton print; //Prints a table
+	private JButton reset;
 	
 	private HashTable table;//Holds info for the table
 	
@@ -42,6 +43,7 @@ public class HashGUI extends GBFrame{
 		add = addButton("Add",5,3,1,1);
 		search = addButton("Search",5,4,1,1);
 		print = addButton("Print",5,5,1,1);
+		reset = addButton("Reset",6,1,5,1);
 		
 		setSize(400,300);
 		setVisible(true);
@@ -76,6 +78,9 @@ public class HashGUI extends GBFrame{
 			output.setText(table.search(inputF.getNumber()));
 		}else if(buttonObj == print){
 			output.setText(table.toString());
+		}else if(buttonObj == reset){
+			dispose();
+			new HashGUI();
 		}
 		 
 	}
